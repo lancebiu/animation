@@ -3,10 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="shortcut icon" href="site/favicon.ico">
+    <link rel="stylesheet" href="site/css/style.min.css">
 </head>
 <body>
 
-<h1>hello world</h1>
+<div class="container">
+    <header>
+        <h1>跳动的小球</h1>
+        <p>通过实现一个跳动的小球比较web中动画的几种实现方式</p>
+    </header>
+    <nav>
+        <a href="#css3" class="current" id="css3">CSS3</a>
+        <a href="#canvas" id="canvas">Canvas</a>
+        <a href="#requestAnimationFrame" id="requestAnimationFrame">requestAnimationFrame</a>
+        <a href="#setTimeout" id="setTimeout">setTimeout</a>
+        <a href="#jquery" id="jquery">JQuery</a>
+    </nav>
+    <main>
+        <div class="preview-panel">
+            <iframe src="examples/css3/index.html" frameborder="0" scrolling="no" width="120" height="500"></iframe>
+        </div>
+        <div class="source-panel"></div>
+    </main>
+</div>
+
+<script src="site/js/bundle.min.js"></script>
 
 </body>
 </html>

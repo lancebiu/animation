@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Document</title>
     <link rel="stylesheet" href="../sharedStyle.css">
+    <style>
+        #ball {
+            background-color: #4CAF50;
+        }
+    </style>
 </head>
 <body>
 
@@ -11,40 +16,41 @@
 
 <script>
 
-    window.requestAnimationFrame =
-            window.requestAnimationFrame
-            || window.mozRequestAnimationFrame
-            || window.webkitRequestAnimationFrame
-            || window.msRequestAnimationFrame;
+    (function() {
+        window.requestAnimationFrame =
+                window.requestAnimationFrame
+                || window.mozRequestAnimationFrame
+                || window.webkitRequestAnimationFrame
+                || window.msRequestAnimationFrame;
 
-    var ball = document.getElementById("ball"),
-            originTop = parseFloat(window.getComputedStyle(ball).getPropertyValue("top")),
-            targetTop = 400,
-            duration = 500,
-            step = 10;
+        var ball = document.getElementById("ball"),
+                originTop = parseFloat(window.getComputedStyle(ball).getPropertyValue("top")),
+                targetTop = 400,
+                step = 10;
 
-    ball.style.top = originTop + "px";
-    function dropBall() {
-        let val = parseFloat(ball.style.top) + step;
-        ball.style.top = val + "px";
-        if (val < targetTop) {
-            requestAnimationFrame(dropBall);
-        } else {
-            requestAnimationFrame(restoreBall);
+        ball.style.top = originTop + "px";
+        function dropBall() {
+            let val = parseFloat(ball.style.top) + step;
+            ball.style.top = val + "px";
+            if (val < targetTop) {
+                requestAnimationFrame(dropBall);
+            } else {
+                requestAnimationFrame(restoreBall);
+            }
         }
-    }
 
-    function restoreBall() {
-        let val = parseFloat(ball.style.top) - step;
-        ball.style.top = val + "px";
-        if (val > originTop) {
-            requestAnimationFrame(restoreBall);
-        } else {
-            requestAnimationFrame(dropBall);
+        function restoreBall() {
+            let val = parseFloat(ball.style.top) - step;
+            ball.style.top = val + "px";
+            if (val > originTop) {
+                requestAnimationFrame(restoreBall);
+            } else {
+                requestAnimationFrame(dropBall);
+            }
         }
-    }
 
-    dropBall();
+        dropBall();
+    }());
 
 </script>
 

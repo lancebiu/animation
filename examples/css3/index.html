@@ -6,19 +6,13 @@
     <link rel="stylesheet" href="../sharedStyle.css">
     <style>
         #ball {
-            animation: jump 1s linear 9999;
+            background-color: #039BE5;
+            animation: jump 0.5s linear infinite alternate;
         }
 
         @keyframes jump {
-            0% {
-                top: 100px;
-            }
-            50% {
-                top: 400px;
-            }
-            100% {
-                top: 100px;
-            }
+            from { top: 100px; }
+            to { top: 400px; }
         }
     </style>
 </head>
