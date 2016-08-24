@@ -4,11 +4,8 @@ require('../styles/prism-dark.scss');
 var Remarkable = require('remarkable');
 var Prism = require('prismjs');
 
-if (window.location.hash) {
-
-    updateLink();
-    updatePanel();
-}
+updateLink();
+updatePanel();
 
 window.addEventListener("hashchange", function () {
     updateLink();
@@ -16,18 +13,18 @@ window.addEventListener("hashchange", function () {
 });
 
 function updateLink() {
-    document.querySelector("a.current").classList.remove("current");
-    document.getElementById(window.location.hash.slice(1)).classList.add("current");
+    if (window.location.hash) {
+        document.querySelector("a.current").classList.remove("current");
+        document.getElementById(window.location.hash.slice(1)).classList.add("current");
+    }
 }
 
 function updatePanel() {
-
-
-    var hash = window.location.hash.slice(1),
+    var hash = window.location.hash ? window.location.hash.slice(1) : 'css3',
         sourceUrl = 'examples/' + hash + '/source.md',
         demoUrl = 'examples/' + hash + '/index.html';
 
-    document.getElementsByTagName('iframe')[0].src=demoUrl;
+    document.getElementsByTagName('iframe')[0].src = demoUrl;
 
     var request = new XMLHttpRequest();
     request.open("GET", sourceUrl, true);
