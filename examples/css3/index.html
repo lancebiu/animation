@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animate Ball - CSS3</title>
+    <link rel="stylesheet" href="../sharedStyle.css">
+    <style>
+        #ball {
+            animation: jump 1s linear 9999;
+        }
+
+        @keyframes jump {
+            0% {
+                top: 100px;
+            }
+            50% {
+                top: 400px;
+            }
+            100% {
+                top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div id="ball"></div>
+
+</body>
+</html>

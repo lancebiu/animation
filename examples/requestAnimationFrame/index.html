@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Animating Ball - setTimeout</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../sharedStyle.css">
 </head>
 <body>
@@ -10,31 +10,37 @@
 <div id="ball"></div>
 
 <script>
+
+    window.requestAnimationFrame =
+            window.requestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || window.webkitRequestAnimationFrame
+            || window.msRequestAnimationFrame;
+
     var ball = document.getElementById("ball"),
             originTop = parseFloat(window.getComputedStyle(ball).getPropertyValue("top")),
             targetTop = 400,
             duration = 500,
-            refreshPeriod = 17,
-            step = (targetTop-originTop) / (duration / refreshPeriod);
+            step = 10;
 
     ball.style.top = originTop + "px";
     function dropBall() {
         let val = parseFloat(ball.style.top) + step;
         ball.style.top = val + "px";
-        if(val < targetTop) {
-            setTimeout(dropBall, refreshPeriod);
+        if (val < targetTop) {
+            requestAnimationFrame(dropBall);
         } else {
-            setTimeout(restoreBall, refreshPeriod);
+            requestAnimationFrame(restoreBall);
         }
     }
 
     function restoreBall() {
         let val = parseFloat(ball.style.top) - step;
         ball.style.top = val + "px";
-        if(val > originTop) {
-            setTimeout(restoreBall, refreshPeriod);
+        if (val > originTop) {
+            requestAnimationFrame(restoreBall);
         } else {
-            setTimeout(dropBall, refreshPeriod);
+            requestAnimationFrame(dropBall);
         }
     }
 

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animating Ball - JQuery Animate</title>
+    <link rel="stylesheet" href="../sharedStyle.css">
+</head>
+<body>
+
+<div id="ball"></div>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+
+    var $ball = $("#ball"),
+            DURATION = 500;
+
+    function dropBall() {
+        $ball.animate({top: '400px'}, DURATION, 'linear', restoreBall);
+    }
+
+    function restoreBall() {
+        $ball.animate({top: '100px'}, DURATION, 'linear', dropBall);
+    }
+
+    dropBall();
+
+
+</script>
+
+</body>
+</html>
