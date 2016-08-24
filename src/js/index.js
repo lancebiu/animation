@@ -4,7 +4,8 @@ require('../styles/prism-dark.scss');
 var Remarkable = require('remarkable');
 var Prism = require('prismjs');
 
-if (window.location.href) {
+if (window.location.hash) {
+
     updateLink();
     updatePanel();
 }
