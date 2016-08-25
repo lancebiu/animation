@@ -2,7 +2,7 @@
 (function() {
     var $ball = $("#ball"),
             originTop = window.getComputedStyle(ball).getPropertyValue("top"),
-            targetTop =  '400px',
+            targetTop =  '300px',
             DURATION = 500;
 
     function dropBall() {

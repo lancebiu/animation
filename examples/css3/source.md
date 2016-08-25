@@ -5,6 +5,6 @@
 
 @keyframes jump {
     from { top: 100px; }
-    to { top: 400px; }
+    to { top: 300px; }
 }
 ```

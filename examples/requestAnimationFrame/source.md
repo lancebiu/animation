@@ -8,8 +8,8 @@
 
         var ball = document.getElementById("ball"),
                 originTop = parseFloat(window.getComputedStyle(ball).getPropertyValue("top")),
-                targetTop = 400,
-                step = 10;
+                targetTop = 300,
+                step = 7;
 
         ball.style.top = originTop + "px";
         function dropBall() {

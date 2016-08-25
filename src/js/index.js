@@ -31,11 +31,13 @@ function updatePanel() {
     request.onload = function () {
         if (request.status >= 200 && request.status < 400) {
             var source = md2html(request.responseText);
+            console.log(source);
             var container = document.createElement("div");
             container.innerHTML = source;
             var code = container.getElementsByTagName("code")[0];
             code.innerHTML = Prism.highlight(code.textContent, Prism.languages[code.className.split("-")[1]]);
             container.getElementsByTagName('pre')[0].className = code.className;
+            console.log(container.innerHTML);
             document.getElementsByClassName("source-panel")[0].innerHTML = container.innerHTML;
         }
     };
