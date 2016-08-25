@@ -24,6 +24,8 @@ function updatePanel() {
         sourceUrl = 'examples/' + hash + '/source.md',
         demoUrl = 'examples/' + hash + '/index.html';
 
+    console.log(hash);
+
     document.getElementsByTagName('iframe')[0].src = demoUrl;
 
     var request = new XMLHttpRequest();
@@ -34,8 +36,8 @@ function updatePanel() {
             var tmp = document.createElement("div");
             tmp.innerHTML = source;
             var code = tmp.getElementsByTagName("code")[0];
-            var html = Prism.highlight(code.innerHTML, Prism.languages[code.className.split("-")[1]]);
-            code.innerHTML = html;
+            code.innerHTML = Prism.highlight(code.innerHTML, Prism.languages[code.className.split("-")[1]]);
+            tmp.getElementsByTagName('pre')[0].className = code.className;
             document.getElementsByClassName("source-panel")[0].innerHTML = tmp.innerHTML;
         }
     };

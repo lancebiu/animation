@@ -60,8 +60,13 @@ main {
     flex: auto;
     padding: 14px 20px;
     overflow: auto; }
-    main .source-panel pre {
-      width: 100%; }
+    main .source-panel pre[class*="language-"] {
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      height: 100%; }
+    main .source-panel code {
+      font-size: 0.75rem; }
 @charset "UTF-8";
 /**
  * prism.js Dark theme for JavaScript, CSS and HTML

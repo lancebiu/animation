@@ -17,14 +17,16 @@
 <script>
     (function() {
         var $ball = $("#ball"),
+                originTop = window.getComputedStyle(ball).getPropertyValue("top"),
+                targetTop =  '400px',
                 DURATION = 500;
 
         function dropBall() {
-            $ball.animate({top: '400px'}, DURATION, 'linear', restoreBall);
+            $ball.animate({top: targetTop}, DURATION, 'linear', restoreBall);
         }
 
         function restoreBall() {
-            $ball.animate({top: '100px'}, DURATION, 'linear', dropBall);
+            $ball.animate({top: originTop}, DURATION, 'linear', dropBall);
         }
 
         dropBall();

@@ -72,9 +72,7 @@ main {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-
     }
-
   }
 
   .source-panel {
@@ -84,8 +82,15 @@ main {
     padding: 14px 20px;
     overflow: auto;
 
-    pre {
-      width: 100%;
+    pre[class*="language-"] {
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      height: 100%;
+    }
+
+    code {
+      font-size: 0.75rem;
     }
   }
 
