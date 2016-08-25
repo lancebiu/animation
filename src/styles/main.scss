@@ -67,6 +67,8 @@ main {
     flex: auto;
     position: relative;
 
+    overflow: auto;
+
     iframe {
       position: absolute;
       top: 50%;
@@ -79,7 +81,6 @@ main {
     background: #1b1b1b;
     width: 100px;
     flex: auto;
-    padding: 14px 20px;
     overflow: auto;
 
     pre[class*="language-"] {
@@ -87,6 +88,7 @@ main {
       background: transparent;
       box-shadow: none;
       height: 100%;
+      padding: 14px 20px;
     }
 
     code {
