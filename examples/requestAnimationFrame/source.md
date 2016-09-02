@@ -13,7 +13,7 @@
 
         ball.style.top = originTop + "px";
         function dropBall() {
-            let val = parseFloat(ball.style.top) + step;
+            var val = parseFloat(ball.style.top) + step;
             ball.style.top = val + "px";
             if (val < targetTop) {
                 requestAnimationFrame(dropBall);
@@ -23,7 +23,7 @@
         }
 
         function restoreBall() {
-            let val = parseFloat(ball.style.top) - step;
+            var val = parseFloat(ball.style.top) - step;
             ball.style.top = val + "px";
             if (val > originTop) {
                 requestAnimationFrame(restoreBall);
